@@ -1,28 +1,47 @@
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+    private List<Book> books;
 
+    public Library() {
+        books = new ArrayList<>();
+    }
 
-        int a = scanner.nextInt();
+    public void addBook(Book book) {
+        books.add(book);
+    }
 
+    public void removeBook(int index) {
+        books.remove(index);
+    }
 
-        int b = scanner.nextInt();
-
-
-        int c = scanner.nextInt();
-
-
-        int max = a;
-        if (b > max) {
-            max = b;
+    public void printBooks() {
+        for (Book book : books) {
+            System.out.println(book);
         }
-        if (c > max) {
-            max = c;
-        }
+    }
+}
 
-        System.out.println("Найбільше число: " + max);
+class Book {
+
+    private String title;
+    private String author;
+    private int year;
+
+    public Book(String title, String author, int year) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", year=" + year +
+                '}';
     }
 }
